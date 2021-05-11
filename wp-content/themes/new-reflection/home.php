@@ -14,8 +14,7 @@
 
 get_header();
 ?>
-
-	<div class="news-container">
+	<div class="blog-container">
 		<main id="primary" class="site-main">
 
 			<?php
@@ -34,6 +33,6 @@ get_header();
 
 		</main><!-- #main -->
 
-	<?php get_sidebar(); ?>
-	</div><!-- .news-container -->
+		<?php get_sidebar(); ?>
+	</div>
 <?php get_footer(); ?>

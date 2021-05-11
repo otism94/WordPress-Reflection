@@ -96,4 +96,33 @@
 			menuItem.classList.toggle( 'focus' );
 		}
 	}
+
+	const searchButtons = document.getElementById('search-buttons');
+	const showSearchButton = document.querySelector('.fa-search-plus')
+	const hideSearchButton = document.querySelector('.fa-search-minus')
+	const navMenu = document.getElementById('primary-menu');
+	const searchBar = document.getElementById('nav-search');
+	searchButtons.addEventListener('click', function(event) {
+		let buttonToHide;
+		let buttonToShow;
+		for (let i = 0; i < searchButtons.childNodes.length; i++) {
+			const thisNode = searchButtons.childNodes[i];
+			if (thisNode.classList) {
+				if (thisNode.classList.contains('search-button-visible')) {
+					buttonToHide = thisNode;
+				} else if (thisNode.classList.contains('fas')) {
+					buttonToShow = thisNode;
+				}
+			}
+		}
+		buttonToHide.classList.remove('search-button-visible');
+		buttonToShow.classList.add('search-button-visible');
+		if (buttonToHide == showSearchButton) {
+			searchBar.style.display = 'inline-block';
+			navMenu.style.display = 'none';
+		} else {
+			searchBar.style.display = 'none';
+			navMenu.style.display = 'flex';
+		}
+	})
 }() );

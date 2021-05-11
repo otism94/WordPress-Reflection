@@ -18,6 +18,7 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+	<script src="https://kit.fontawesome.com/e97517236b.js" crossorigin="anonymous"></script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -52,6 +53,11 @@
 					)
 				);
 				?>
+				<input type="search" id="nav-search" class="search-field" placeholder="Search …" value="" name="s">
+				<div id="search-buttons">
+					<i class="fas fa-search-plus search-button-visible"></i>
+					<i class="fas fa-search-minus"></i>
+				</div>
 			</nav><!-- #site-navigation -->
 		</div><!-- #hero-image -->
 	</header><!-- #masthead -->

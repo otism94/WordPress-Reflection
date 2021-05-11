@@ -23,7 +23,7 @@
 define( 'DB_NAME', 'wordpress-reflection' );
 
 /** MySQL database username */
-define( 'DB_USER', 'admin' );
+define( 'DB_USER', 'wordpress-admin' );
 
 /** MySQL database password */
 define( 'DB_PASSWORD', 'HqQ1lg592.kpv51D' );

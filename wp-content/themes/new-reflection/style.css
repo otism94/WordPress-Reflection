@@ -584,40 +584,30 @@ body {
 	font-weight: 600;
 }
 
-.blog .site {
-	display: grid;
-	grid-template-columns: auto 25%;
-	grid-template-areas: "header header" "main sidebar" "footer footer";
-}
-
-.blog .site-header {
-	grid-area: header;
-}
-
-.blog .site-main {
-	grid-area: main;
-	overflow: hidden;
-	/* Resolves issue with <pre> elements forcing full width. */
-}
-
-.blog .widget-area {
-	grid-area: sidebar;
-}
-
-.blog .site-footer {
-	grid-area: footer;
-}
-
-.blog .news-container {
+.blog .blog-container {
+	display: flex;
+	justify-content: space-between;
 	width: 80%;
-	padding: 30px 0;
 	margin: auto;
 }
 
 @media (min-width: 1024px) {
-	.blog .news-container {
+	.blog .blog-container {
 		width: 1000px;
 	}
+}
+
+.blog .blog-container #primary {
+	width: 70%;
+}
+
+.blog .blog-container #secondary {
+	width: 30%;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+	margin: 40px 0 auto 30px;
+	background: linear-gradient(150deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.05) 100%), #f5f5f5;
 }
 
 .blog .post {
@@ -919,6 +909,7 @@ textarea {
 }
 
 .main-navigation #primary-menu {
+	width: 400px;
 	margin: auto;
 }
 
@@ -1022,6 +1013,45 @@ textarea {
 .post-navigation .nav-next {
 	text-align: end;
 	flex: 1 0 50%;
+}
+
+#nav-search {
+	display: none;
+	width: 380px;
+	height: 40px;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 20px;
+	margin: 5px 10px;
+}
+
+#nav-search:focus {
+	outline: none;
+}
+
+#search-buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: 50px;
+	transition: .5s;
+}
+
+#search-buttons:hover {
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+#search-buttons .fas {
+	display: none;
+	color: #fff;
+	font-size: 20px;
+}
+
+#search-buttons .search-button-visible {
+	display: inline !important;
 }
 
 .element-is-sticky {

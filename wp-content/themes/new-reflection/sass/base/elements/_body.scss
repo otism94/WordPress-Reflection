@@ -100,42 +100,31 @@ body {
 }
 
 .blog {
-	.site {
-		display: grid;
-		grid-template-columns: auto ($size__site-sidebar);
-		grid-template-areas:
-			"header header"
-			"main sidebar"
-			"footer footer";
 
-	}
-	
-	.site-header {
-		grid-area: header;
-	}
-	
-	.site-main {
-		grid-area: main;
-		overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
-	}
-	
-	.widget-area {
-		grid-area: sidebar;
-	}
-	
-	.site-footer {
-		grid-area: footer;
-	}
-
-	.news-container {
+	.blog-container {
+		display: flex;
+		justify-content: space-between;
 		width: 80%;
-		padding: 30px 0;
 		margin: auto;
 
 		@include mq('lg') {
 			width: 1000px;
 		}
 
+		#primary{
+			width: 70%;
+		}
+
+		#secondary {
+			width: 30%;
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0 0 30px rgba(0,0,0,.2);
+			margin: 40px 0 auto 30px;
+			background: linear-gradient(150deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.05) 100%),
+				#f5f5f5;
+		}
+		 
 	}
 
 	.post {
