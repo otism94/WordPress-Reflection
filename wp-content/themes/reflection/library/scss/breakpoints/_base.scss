@@ -154,8 +154,28 @@ h5, .h5 {
 HEADER STYLES
 *********************/
 
+.home .header {
+	display: flex;
+	height: calc(100vh - 46px);
+	align-items: center;
+	@media (min-width: 783px) {
+		height: calc(100vh - 32px);
+	}
+
+	#inner-header {
+		margin: 0;
+
+		.h1 {
+			font-size: 42px;
+			text-align: center;
+		}
+	}
+}
+
 .header {
-	background-color: $black;
+	max-width: 100%;
+	background: url("../images/michael-scherback-MdqpSMOcDPs-unsplash.jpg") no-repeat center;
+	background-size: cover;
 }
 
 	#logo {
@@ -177,6 +197,16 @@ easily write one group of styles for
 the navs on the site so our css is cleaner
 and more scalable.
 */
+
+nav {
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	top: 50px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
 
 .nav {
 	border-bottom: 0;
@@ -242,7 +272,9 @@ and more scalable.
 	li.current_page_item,
 	li.current_page_ancestor {
 
-		a {}
+		a {
+			text-decoration: underline;
+		}
 
 	}  /* end current highlighters */
 

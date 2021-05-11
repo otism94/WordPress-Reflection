@@ -1,0 +1,31 @@
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+// Media queries
+@mixin mq($break) {
+    $value: map-get($breakpoints, $break);
+    $sm: map-get($breakpoints, 'sm');
+
+    @if $value == null {
+        @warn '"#{$break}" is not a valid breakpoint name.'
+
+    } @else if $value < $sm {
+        @media (max-width: $value) {
+            @content;
+        }
+        
+    } @else {
+        @media (min-width: $value) {
+            @content;
+        }
+      }
+  }

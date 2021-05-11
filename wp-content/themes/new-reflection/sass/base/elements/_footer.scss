@@ -1,0 +1,18 @@
+.site-footer {
+    width: 100%;
+    color: #e6e6e6;
+	background: linear-gradient(150deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 100%),
+				#222222;
+    
+    .site-info {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        padding: 10px 0;
+        margin: auto;
+
+        @include mq('lg') {
+            width: 1000px;
+        }
+    }
+}

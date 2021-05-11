@@ -1,0 +1,203 @@
+body {
+	background: linear-gradient(240deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%),
+				$color__background-body; // Fallback for when there is no custom background color defined.
+}
+
+.home .entry-title {
+	display: none;
+}
+
+.home-intro {
+    width: 80%;
+	padding: 30px 0;
+    margin: auto;
+
+    @include mq('lg') {
+        width: 1000px;
+    }
+}
+
+.home-supplement {
+	width: 100% !important;
+	padding: 20px 20px 40px;
+	margin: 0 !important;
+	color: #e6e6e6;
+	background: linear-gradient(150deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 100%),
+				#222222;
+
+	.wp-block-group__inner-container {
+		width: 80%;
+		margin: auto;
+	
+		@include mq('lg') {
+			width: 1000px;
+		}
+	}
+}
+
+.home-columns {
+	max-width: 80%;
+	margin: 40px auto;
+
+	@include mq('lg') {
+		max-width: 1000px;
+	}
+
+	.wp-block-columns {
+		display: flex;
+	}
+}
+
+.home-news-sidetext {
+	order: 2;
+	@include mq('sm') {
+		order: 1;
+	}
+
+	.wp-block-group {
+		margin: 0 !important;
+
+		.wp-block-group__inner-container {
+			width: 100%;
+		}
+	}
+}
+
+.home-latest-news {
+	order: 1;
+	padding: 0 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+	margin-bottom: auto;
+	background-color: #fff;
+
+	@include mq('sm') {
+		order: 2;
+	}
+
+	h3 {
+		margin: 29.88px 0 20px;
+	}
+
+	ul {
+		padding-left: 0;
+		margin-left: 0;
+
+		li {
+			padding-bottom: 10px;
+			
+			&:not(:last-child) {
+				border-bottom: 1px solid #CCC;
+				margin-bottom: 10px;
+			}
+
+			a {
+				font-weight: 600;
+			}
+		}
+		
+	}
+}
+
+.blog {
+	.site {
+		display: grid;
+		grid-template-columns: auto ($size__site-sidebar);
+		grid-template-areas:
+			"header header"
+			"main sidebar"
+			"footer footer";
+
+	}
+	
+	.site-header {
+		grid-area: header;
+	}
+	
+	.site-main {
+		grid-area: main;
+		overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
+	}
+	
+	.widget-area {
+		grid-area: sidebar;
+	}
+	
+	.site-footer {
+		grid-area: footer;
+	}
+
+	.news-container {
+		width: 80%;
+		padding: 30px 0;
+		margin: auto;
+
+		@include mq('lg') {
+			width: 1000px;
+		}
+
+	}
+
+	.post {
+		padding: 10px 30px 30px;
+		border-radius: 10px;
+		box-shadow: 0 0 30px rgba(0,0,0,.2);
+		margin: 40px auto;
+		background-color: #fff;
+
+		.post-thumbnail {
+			width: 100%;
+		}
+
+		.attachment-post-thumbnail {
+			margin: auto;
+			max-width: 60%;
+		}
+
+		.entry-title {
+			margin-bottom: 0;
+		}
+
+		.entry-meta {
+			margin-bottom: 20px;
+			font-style: italic;
+		}
+
+		.more-link {
+			display: block;
+			margin-bottom: 20px;
+			font-size: 20px;
+
+			&::after {
+				content: " →";
+			}
+		}
+
+		footer span {
+			display: inline-block;
+
+			&:nth-child(0n+2) {
+				float: right;
+			}
+
+			&:last-child {
+				display: block;
+			}
+		}
+	}
+}
+
+/* Gallery */
+.page-id-7 .entry-content {
+	width: 80%;
+	padding: 30px 0;
+    margin: auto;
+
+	@include mq('xs') {
+		width: 90%;
+	}
+
+    @include mq('lg') {
+        width: 1000px;
+    }
+}

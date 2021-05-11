@@ -65,9 +65,7 @@
 
 
 						</main>
-
-					<?php get_sidebar(); ?>
-
+								WHAT THE FUCK IS GOING ON
 				</div>
 
 			</div>
