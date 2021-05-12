@@ -53,7 +53,7 @@
 					)
 				);
 				?>
-				<input type="search" id="nav-search" class="search-field" placeholder="Search …" value="" name="s">
+				<input type="search" id="nav-search" class="search-field" placeholder="Search..." value="" name="s">
 				<div id="search-buttons">
 					<i class="fas fa-search-plus search-button-visible"></i>
 					<i class="fas fa-search-minus"></i>
