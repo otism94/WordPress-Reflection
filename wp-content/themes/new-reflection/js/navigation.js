@@ -31,14 +31,75 @@
 		menu.classList.add( 'nav-menu' );
 	}
 
+	const burgerButton = document.querySelector( '.hamburger' );
+	const searchButtons = document.getElementById( 'search-buttons' );
+	const searchBar = document.getElementById( 'nav-search' );
+
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
+		burgerButton.classList.toggle( 'is-active' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
 		} else {
 			button.setAttribute( 'aria-expanded', 'true' );
+			siteNavigation.scrollIntoView();
+		}
+
+		if ( siteNavigation.classList.contains( 'toggled' ) && searchBar.classList.contains( 'toggled' ) ) {
+			searchBar.classList.toggle( 'toggled' );
+			searchButtons.setAttribute( 'aria-expanded', 'false' );
+		}
+	} );
+
+	const showSearchButton = document.querySelector( '.fa-search-plus' );
+	const hideSearchButton = document.querySelector( '.fa-search-minus' );
+	const navMenu = document.getElementById( 'primary-menu' );
+
+	// Toggle the searchbar.
+	searchButtons.addEventListener( 'click', function() {
+		if ( siteNavigation.classList.contains( 'toggled' ) ) {
+			siteNavigation.classList.toggle( 'toggled' );
+			button.setAttribute( 'aria-expanded', 'false' );
+		}
+
+		let buttonToHide;
+		let buttonToShow;
+
+		for ( let i = 0; i < searchButtons.childNodes.length; i++ ) {
+			const thisNode = searchButtons.childNodes[i];
+			if ( thisNode.classList ) {
+				if ( thisNode.classList.contains( 'search-button-visible' ) ) {
+					buttonToHide = thisNode;
+				} else if ( thisNode.classList.contains( 'fas' ) ) {
+					buttonToShow = thisNode;
+				}
+			}
+		}
+
+		burgerButton.classList.remove( 'is-active' );
+		buttonToHide.classList.remove( 'search-button-visible' );
+		buttonToHide.setAttribute( 'aria-hidden', 'true' );
+		buttonToShow.classList.add( 'search-button-visible' );
+		buttonToShow.setAttribute( 'aria-hidden', 'false' );
+
+		if ( buttonToHide == showSearchButton ) {
+			searchButtons.setAttribute( 'aria-expanded', 'true' );
+			searchBar.classList.toggle( 'toggled' );
+
+			if ( window.innerWidth > 599 && !navMenu.classList.contains( 'off' ) ) {
+				navMenu.classList.toggle( 'off' );
+				button.setAttribute( 'aria-expanded', 'false' );
+			}
+		} else if ( buttonToHide == hideSearchButton ) {
+			searchButtons.setAttribute( 'aria-expanded', 'false' );
+			searchBar.classList.toggle( 'toggled' );
+
+			if ( window.innerWidth > 599 && navMenu.classList.contains( 'off' ) ) {
+				navMenu.classList.toggle( 'off' );
+				button.setAttribute( 'aria-expanded', 'true' );
+			}
 		}
 	} );
 
@@ -48,6 +109,24 @@
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
+			button.setAttribute( 'aria-expanded', 'false' );
+			searchBar.classList.remove( 'toggled' );
+			searchButtons.setAttribute( 'aria-expanded', 'false' );
+		}
+	} );
+
+	window.addEventListener( 'resize', function() {
+		if ( window.innerWidth > 599 ) {
+			burgerButton.classList.remove( 'is-active' );
+		}
+
+		if ( window.innerWidth > 599 && siteNavigation.classList.contains( 'toggled' ) ) {
+			siteNavigation.classList.toggle( 'toggled' );
+			button.setAttribute( 'aria-expanded', 'false' );
+		}
+
+		if ( window.innerWidth <= 599 && navMenu.classList.contains( 'toggle' ) ) {
+			siteNavigation.classList.toggle( 'toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );
@@ -97,32 +176,7 @@
 		}
 	}
 
-	const searchButtons = document.getElementById('search-buttons');
-	const showSearchButton = document.querySelector('.fa-search-plus')
-	const hideSearchButton = document.querySelector('.fa-search-minus')
-	const navMenu = document.getElementById('primary-menu');
-	const searchBar = document.getElementById('nav-search');
-	searchButtons.addEventListener('click', function(event) {
-		let buttonToHide;
-		let buttonToShow;
-		for (let i = 0; i < searchButtons.childNodes.length; i++) {
-			const thisNode = searchButtons.childNodes[i];
-			if (thisNode.classList) {
-				if (thisNode.classList.contains('search-button-visible')) {
-					buttonToHide = thisNode;
-				} else if (thisNode.classList.contains('fas')) {
-					buttonToShow = thisNode;
-				}
-			}
-		}
-		buttonToHide.classList.remove('search-button-visible');
-		buttonToShow.classList.add('search-button-visible');
-		if (buttonToHide == showSearchButton) {
-			searchBar.style.display = 'inline-block';
-			navMenu.style.display = 'none';
-		} else {
-			searchBar.style.display = 'none';
-			navMenu.style.display = 'flex';
-		}
-	})
+	window.addEventListener('load', function() {
+		document.querySelector('.search-button-visible').setAttribute('aria-hidden', 'false');
+	});
 }() );

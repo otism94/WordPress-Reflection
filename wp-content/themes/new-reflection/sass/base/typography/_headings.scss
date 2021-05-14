@@ -9,17 +9,13 @@ h6,
 	clear: both;
 }
 
-.site-title a {
+h1.site-title , p.site-title {
 	display: block;
 	margin: auto;
-	color: $color__heading-header;
+	color: #fff;
 	font-size: 42px;
 	font-weight: 700;
 	letter-spacing: 7px;
 	text-align: center;
 	text-decoration: none;
-
-	&:hover {
-		color: $color__heading-header;
-	}
 }

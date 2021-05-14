@@ -5,8 +5,15 @@
 	margin: auto auto 0;
 
 	#primary-menu {
-		width: 400px;
 		margin: auto;
+
+		@include mq('sm') {
+			width: 400px;
+		}
+
+		&.off {
+			display: none;
+		}
 	}
 
 	ul {
@@ -93,10 +100,28 @@
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+.element-is-not-sticky.toggled .menu-main-nav-container,
+.element-is-sticky.toggled .menu-main-nav-container {
+	position: absolute;
+	left: 5%;
+	width: 90%;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	background: linear-gradient(to bottom, transparent, #FF576D 10%);
 
+	li a {
+			text-align: center;
+	}
+}
+
+.element-is-sticky.toggled .menu-main-nav-container {
+	left: 0;
+	width: 100%;
+}
+
+@include mq('sm') {
 	.menu-toggle {
-		display: none;
+		display: none !important;
 	}
 
 	.main-navigation ul {
@@ -128,15 +153,23 @@
 
 #nav-search {
 	display: none;
-	width: 380px;
+	width: 100%;
 	height: 40px;
 	padding: 5px 15px;
 	border: none;
 	border-radius: 20px;
 	margin: 5px 10px;
 
+	@include mq('md') {
+		width: 380px;
+	}
+
 	&:focus {
 		outline: none;
+	}
+
+	&.toggled {
+		display: inline-block;
 	}
 }
 
@@ -144,9 +177,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 100;
 	width: 50px;
 	height: 50px;
-	transition: .5s;
+	border: none;
+	background: none;
+	transition: background-color .5s;
 
 	&:hover {
 		cursor: pointer;
@@ -169,4 +205,43 @@
 	left: 0 !important;
 	background: linear-gradient(150deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%),
 				linear-gradient(to right, rgba(255, 87, 109, 0),#FF576D 20%, #FF576D 80%, rgba(255, 87, 109, 0) 100%);
+
+	@include mq('xs') {
+		left: 5% !important;
+		width: 90%;
+		background: #FF576D;
+		border-bottom-right-radius: 30px;
+		border-bottom-left-radius: 30px;
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+		#search-buttons {
+			margin-right: 5%;
+		}
+	}
+
+	li a {
+		text-align: center;
+	}
+	
+	.hamburger {
+		margin-left: 5%;
+	}
+}
+
+.element-is-not-sticky {
+	width: 90%;
+}
+
+.hamburger {
+	z-index: 100;
+	height: 61px;
+}
+
+@include mq('xs') {
+	#site-navigation {
+		display: flex;
+		justify-content: space-between;
+		max-width: 90%;
+		opacity: .9;
+	}
 }

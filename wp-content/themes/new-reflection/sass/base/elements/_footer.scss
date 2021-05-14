@@ -11,6 +11,10 @@
         padding: 10px 0;
         margin: auto;
 
+        @include mq('xs') {
+            flex-direction: column;
+        }
+
         @include mq('lg') {
             width: 1000px;
         }
