@@ -2,7 +2,7 @@
 /*
 Plugin Name: Search In Place
 Plugin URI: https://searchinplace.dwbooster.com
-Version: 1.0.77
+Version: 1.0.78
 Author: CodePeople
 Author URI: https://searchinplace.dwbooster.com
 Text Domain: search-in-place
@@ -10,7 +10,7 @@ Description: Search in Place improves blog search by displaying query results in
 */
 
 if(!defined('SEARCH_IN_PLACE_VERSION'))
-define( 'SEARCH_IN_PLACE_VERSION', '1.0.77');
+define( 'SEARCH_IN_PLACE_VERSION', '1.0.78');
 
 require_once 'banner.php';
 $codepeople_promote_banner_plugins[ 'codepeople-search-in-place' ] = array(
@@ -90,6 +90,6 @@ add_action('wp_ajax_search_in_place', array(&$codepeople_search_in_place_obj, 'p
 if(!get_option('search_in_place_own_only') || !empty($_REQUEST['search_in_place_form']))
 {
 	add_action('pre_get_posts', array(&$codepeople_search_in_place_obj, 'modifySearch'));
-	add_filter('posts_request', array(&$codepeople_search_in_place_obj, 'modifySearchQuery'), 99);
+	add_filter('posts_request', array(&$codepeople_search_in_place_obj, 'modifySearchQuery'), 99, 2);
 }
 add_action('wp_head', array(&$codepeople_search_in_place_obj, 'setStyles'));

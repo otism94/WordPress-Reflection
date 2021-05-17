@@ -124,10 +124,11 @@ class CodePeopleSearchInPlace {
 	/*
 		The most important method for search process, populate the list of results.
 	*/
-	public function modifySearchQuery( $query )
+	public function modifySearchQuery( $query, $query_obj )
 	{
 		global $cp_search_in_place;
-		if( ( !is_admin() && is_search() && isset( $_GET[ 's' ] ) ) || !empty( $cp_search_in_place ) )
+
+		if((!is_admin() && $query_obj->is_main_query() && is_search() && isset($_GET[ 's' ]))  || !empty($cp_search_in_place))
 		{
 			$connection_operator = get_option( 'search_in_place_connection_operator', 'or' );
 			$connection_operator = ( ( empty( $connection_operator ) ) ? "OR" : $connection_operator );
@@ -144,7 +145,7 @@ class CodePeopleSearchInPlace {
 
 		$cp_search_in_place = true;
 
-		add_filter('posts_request', array(&$this, 'modifySearchQuery'));
+		add_filter('posts_request', array(&$this, 'modifySearchQuery'), 10, 2);
 
 		$limit = get_option('search_in_place_number_of_posts', 10); // Number of results to display
 		$post_list = array();

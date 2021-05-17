@@ -146,6 +146,10 @@ A: Go to the settings page of the plugin, and enter the IDs of pages or posts th
 
 == Changelog ==
 
+= 1.0.78 =
+
+* Optimizes search queries by reducing execution time and memory consumption.
+
 = 1.0.77 =
 
 * Modifies the search on the current page to ignore the tildes.

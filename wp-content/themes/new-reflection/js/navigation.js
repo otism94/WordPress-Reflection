@@ -34,6 +34,8 @@
 	const burgerButton = document.querySelector( '.hamburger' );
 	const searchButtons = document.getElementById( 'search-buttons' );
 	const searchBar = document.getElementById( 'nav-search' );
+	const showSearchButton = document.querySelector( '.fa-search-plus' );
+	const hideSearchButton = document.querySelector( '.fa-search-minus' );
 
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
@@ -50,11 +52,13 @@
 		if ( siteNavigation.classList.contains( 'toggled' ) && searchBar.classList.contains( 'toggled' ) ) {
 			searchBar.classList.toggle( 'toggled' );
 			searchButtons.setAttribute( 'aria-expanded', 'false' );
+			hideSearchButton.classList.remove( 'search-button-visible' );
+			hideSearchButton.setAttribute( 'aria-hidden', 'true' );
+			showSearchButton.classList.add( 'search-button-visible' );
+			showSearchButton.setAttribute( 'aria-hidden', 'false' );
 		}
 	} );
 
-	const showSearchButton = document.querySelector( '.fa-search-plus' );
-	const hideSearchButton = document.querySelector( '.fa-search-minus' );
 	const navMenu = document.getElementById( 'primary-menu' );
 
 	// Toggle the searchbar.
