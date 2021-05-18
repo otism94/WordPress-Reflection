@@ -29,6 +29,18 @@
         .site-branding {
             padding-top: 30px;
             margin-top: auto;
+
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                display: flex;
+                flex-basis: 100%;
+                width: 100%;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+        }
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            margin: 0;
         }
     }
 }

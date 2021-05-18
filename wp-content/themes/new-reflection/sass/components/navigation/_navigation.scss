@@ -14,6 +14,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	width: 100% !important;
 	margin: auto auto 0;
 
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		margin: 0;
+	}
+
 	#primary-menu {
 		margin: auto;
 
@@ -243,7 +247,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 .hamburger {
-	z-index: 100;
+	position: relative;
+	z-index: 9001;
 	height: 61px;
 }
 

@@ -418,6 +418,18 @@ h1.site-title, p.site-title {
 	text-decoration: none;
 }
 
+@media (max-width: 599px) {
+	h1.site-title, p.site-title {
+		font-size: 32px;
+	}
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	h1.site-title, p.site-title {
+		align-self: center;
+	}
+}
+
 p {
 	margin-bottom: 1.5em;
 }
@@ -508,6 +520,22 @@ body {
 .site-header #hero-image .site-branding {
 	padding-top: 30px;
 	margin-top: auto;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.site-header #hero-image .site-branding {
+		display: flex;
+		flex-basis: 100%;
+		width: 100%;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.site-header #hero-image {
+		margin: 0;
+	}
 }
 
 .home .site-header {
@@ -719,8 +747,7 @@ textarea {
 	}
 }
 
-.home .home-supplement,
-.home .about-supplement {
+.home .home-supplement {
 	width: 100% !important;
 	padding: 20px 20px 40px;
 	margin: 0 !important;
@@ -728,15 +755,13 @@ textarea {
 	background: linear-gradient(150deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 100%), #222222;
 }
 
-.home .home-supplement .wp-block-group__inner-container,
-.home .about-supplement .wp-block-group__inner-container {
+.home .home-supplement .wp-block-group__inner-container {
 	width: 80%;
 	margin: auto;
 }
 
 @media (min-width: 1024px) {
-	.home .home-supplement .wp-block-group__inner-container,
-	.home .about-supplement .wp-block-group__inner-container {
+	.home .home-supplement .wp-block-group__inner-container {
 		width: 1000px;
 	}
 }
@@ -774,8 +799,7 @@ textarea {
 	width: 100%;
 }
 
-.home .home-latest-news,
-.home .about-latest-news {
+.home .home-latest-news {
 	order: 1;
 	padding: 0 20px;
 	border-radius: 10px;
@@ -785,36 +809,30 @@ textarea {
 }
 
 @media (min-width: 600px) {
-	.home .home-latest-news,
-	.home .about-latest-news {
+	.home .home-latest-news {
 		order: 2;
 	}
 }
 
-.home .home-latest-news h3,
-.home .about-latest-news h3 {
+.home .home-latest-news h3 {
 	margin: 29.88px 0 20px;
 }
 
-.home .home-latest-news ul,
-.home .about-latest-news ul {
+.home .home-latest-news ul {
 	padding-left: 0;
 	margin-left: 0;
 }
 
-.home .home-latest-news ul li,
-.home .about-latest-news ul li {
+.home .home-latest-news ul li {
 	padding-bottom: 10px;
 }
 
-.home .home-latest-news ul li:not(:last-child),
-.home .about-latest-news ul li:not(:last-child) {
+.home .home-latest-news ul li:not(:last-child) {
 	border-bottom: 1px solid #CCC;
 	margin-bottom: 10px;
 }
 
-.home .home-latest-news ul li a,
-.home .about-latest-news ul li a {
+.home .home-latest-news ul li a {
 	font-weight: 600;
 }
 
@@ -1572,6 +1590,12 @@ input[type="search"]::-webkit-search-results-decoration {
 	margin: auto auto 0;
 }
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.main-navigation {
+		margin: 0;
+	}
+}
+
 .main-navigation #primary-menu {
 	margin: auto;
 }
@@ -1792,7 +1816,8 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .hamburger {
-	z-index: 100;
+	position: relative;
+	z-index: 9001;
 	height: 61px;
 }
 

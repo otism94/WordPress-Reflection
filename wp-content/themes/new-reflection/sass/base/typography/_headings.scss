@@ -18,4 +18,12 @@ h1.site-title , p.site-title {
 	letter-spacing: 7px;
 	text-align: center;
 	text-decoration: none;
+
+	@include mq('xs') {
+		font-size: 32px;
+	}
+
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		align-self: center;
+	}
 }

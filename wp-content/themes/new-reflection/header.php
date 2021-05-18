@@ -17,6 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default" crossorigin="anonymous"></script>
 	<?php wp_head(); ?>
 	<script src="https://kit.fontawesome.com/e97517236b.js" crossorigin="anonymous"></script>
 </head>
