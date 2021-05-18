@@ -26,7 +26,7 @@
 			<div class="site-links">
 				<a href="/privacy-policy">Privacy Policy</a>
 				<span class="sep"> | </span>
-				<a href="#">Sitemap</a>
+				<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/sitemap_index.xml" target="_blank">Sitemap</a>
 			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

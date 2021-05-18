@@ -1,0 +1,16 @@
+/* Privacy Policy */
+.page-id-3 {
+	.entry-title {
+		display: none;
+	}
+
+	.entry-content {
+		width: 80%;
+		padding: 30px 0;
+		margin: auto;
+	
+		@include mq('lg') {
+			width: 1000px;
+		}
+	}
+}

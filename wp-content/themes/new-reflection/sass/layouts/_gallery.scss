@@ -1,0 +1,20 @@
+/* Gallery */
+.page-id-7 {
+	.entry-title {
+		display: none;
+	}
+
+	.entry-content {
+		width: 80%;
+		padding: 30px 0;
+		margin: auto;
+
+		@include mq('xs') {
+			width: 90%;
+		}
+
+		@include mq('lg') {
+			width: 1000px;
+		}
+	}
+}

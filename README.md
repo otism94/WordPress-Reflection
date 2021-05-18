@@ -11,6 +11,6 @@
 - [x] Customise theme
 - [x] Set up each page's structure
 - [x] Add page content
-- [ ] Add more articles with SEO
-- [ ] Organise Sass partials
-- [ ] Create sitemap
+- [x] Organise Sass partials
+- [x] Add more articles with SEO
+- [x] Create sitemap

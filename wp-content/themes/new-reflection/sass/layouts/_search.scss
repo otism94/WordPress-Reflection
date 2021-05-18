@@ -1,0 +1,139 @@
+/* Search */
+.search {
+	.blog-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 80%;
+		margin: auto;
+		margin-bottom: 40px;
+
+		@include mq('xs') {
+			width: 100%;
+		}
+
+		@include mq('md') {
+			flex-direction: row;
+		}
+
+		@include mq('lg') {
+			width: 1000px;
+		}
+
+		#primary{
+			order: 2;
+			width: 100%;
+
+			@include mq('md') {
+				order: 2;
+				width: 70%;
+			}
+
+			input {
+				height: 40px;
+				padding: 5px 15px;
+				border: none;
+				border-radius: 20px;
+				box-shadow: 0 0 20px rgba(0,0,0,.1);
+		
+				&:focus {
+					border: 1px solid #FF576D;
+					box-shadow: inset 0 0 10px rgba(255, 87, 109, 0.1);
+					outline: none;
+				}
+			}
+
+			input[type="submit"] {
+				width: auto;
+				background-color: $color__link;
+				color: #fff;
+				font-weight: 600;
+	
+				&:hover {
+					cursor: pointer;
+					background-color: $color__link-hover;
+				}
+	
+				&:focus {
+					background-color: #fff;
+					color: #222222;
+				}
+			}
+
+			article {
+				padding: 10px 30px 30px;
+				border-radius: 10px;
+				box-shadow: 0 0 30px rgba(0,0,0,.2);
+				margin: 40px auto;
+				background-color: #fff;
+		
+				.post-thumbnail {
+					width: 100%;
+				}
+		
+				.entry-title {
+					margin-bottom: 0;
+				}
+		
+				.entry-meta {
+					margin-bottom: 20px;
+					font-style: italic;
+				}
+		
+				.more-link {
+					display: block;
+					margin-bottom: 20px;
+					font-size: 20px;
+		
+					&::after {
+						content: " →";
+					}
+				}
+		
+				footer  {
+					display: flex;
+					flex-wrap: wrap;
+		
+					span {
+						display: inline-block;
+		
+						&.cat-links, &.tags-links {
+							width: 50%;
+						}
+		
+						&.comments-link, &.edit-link {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+
+		#secondary {
+			order: 1;
+			width: 80%;
+			padding: 10px 30px 30px;
+			border-radius: 10px;
+			box-shadow: 0 0 30px rgba(0,0,0,.2);
+			margin: 40px auto 0;
+			background: linear-gradient(150deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.05) 100%),
+				#f5f5f5;
+
+			@include mq('md') {
+				order: 2;
+				width: 30%;
+				margin: 40px 0 auto 30px;
+			}
+			
+			#cat {
+				width: 100%;
+				border-radius: 10px;
+				padding: 5px;
+			}
+
+			.widget_archive ul {
+				margin: 0;
+			}
+		}
+	}
+}
